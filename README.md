@@ -1,15 +1,98 @@
-# Book Data Pipeline Capstone
+# Books Capstone API
 
-## Setup
+A Python backend project that demonstrates **web scraping, SQLite database management, CRUD operations, and REST API development using FastAPI**.
+
+## Features
+
+* Scrapes the first 20 books from Books to Scrape
+* Extracts title, price, stock status, and rating
+* Stores data in SQLite
+* Implements CRUD operations
+* Exposes data through FastAPI REST APIs
+* Interactive Swagger API documentation
+
+## Tech Stack
+
+* Python
+* Requests
+* BeautifulSoup4
+* SQLite
+* FastAPI
+* Uvicorn
+
+## Project Structure
+
+```text
+Books-Capstone/
+│
+├── scraper.py       # Web scraping
+├── database.py      # SQLite CRUD operations
+├── main.py          # FastAPI REST API
+├── books.db         # SQLite database
+├── requirements.txt
+└── README.md
 ```
-python -m venv venv
-venv\Scripts\activate      (Windows)  /  source venv/bin/activate (Mac/Linux)
+
+## Architecture
+
+```text
+Books to Scrape
+      ↓
+  scraper.py
+      ↓
+  database.py
+      ↓
+   books.db
+      ↓
+    main.py
+      ↓
+   REST API
+```
+
+## API Endpoints
+
+| Method | Endpoint      | Purpose       |
+| ------ | ------------- | ------------- |
+| GET    | `/books`      | Get all books |
+| GET    | `/books/{id}` | Get one book  |
+| POST   | `/books`      | Create book   |
+| PUT    | `/books/{id}` | Update book   |
+| DELETE | `/books/{id}` | Delete book   |
+
+## Run the Project
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Run order
-1. `python scraper.py`   → scrapes first 20 books, fills `books.db`
-2. `python main.py`      → starts FastAPI at http://127.0.0.1:8000
-3. `python client.py`    → (new terminal) hits API, saves `exported_books.csv` + `price_vs_rating.png`
+Run the scraper:
 
-Docs: http://127.0.0.1:8000/docs
+```bash
+python scraper.py
+```
+
+Start the API:
+
+```bash
+python main.py
+```
+
+API:
+
+```text
+http://127.0.0.1:8000
+```
+
+Swagger documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Learning Focus
+
+**Web Scraping → Data Processing → SQLite → OOP CRUD → REST API**
+
+Built as a hands-on Python backend capstone project.
